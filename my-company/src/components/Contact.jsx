@@ -3,10 +3,15 @@ import { useState } from 'react';
 function Contact() {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert('Form submitted!')
+  }
+
   return (
     <div style={{ padding: '20px' }}>
       <h1>Contact Us</h1>
-      <form>
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
           placeholder="Name"
@@ -27,6 +32,7 @@ function Contact() {
           onChange={(e) => setForm({ ...form, message: e.target.value })}
           style={{ display: 'block', marginBottom: '10px' }}
         />
+        <button type='submit'>Send message</button>
       </form>
     </div>
   );
